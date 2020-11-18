@@ -28,6 +28,7 @@ import Categories.Bicategory.Construction.1-Category
 import Categories.Bicategory.Extras
 import Categories.Bicategory.Instance.Cats
 import Categories.Bicategory.Instance.EnrichedCats
+import Categories.Bicategory.Opposite
 import Categories.Category
 import Categories.Category.BicartesianClosed
 import Categories.Category.CMonoidEnriched
@@ -88,6 +89,9 @@ import Categories.Category.Construction.Properties.Presheaves.FromCartesianCCC
 import Categories.Category.Construction.Pullbacks
 import Categories.Category.Construction.Thin
 import Categories.Category.Core
+import Categories.Category.Dagger
+import Categories.Category.Dagger.Construction.Discrete
+import Categories.Category.Dagger.Instance.Rels
 import Categories.Category.Discrete
 import Categories.Category.Duality
 import Categories.Category.Equivalence
@@ -124,6 +128,7 @@ import Categories.Category.Instance.Properties.Setoids.CCC
 import Categories.Category.Instance.Properties.Setoids.Cocomplete
 import Categories.Category.Instance.Properties.Setoids.Complete
 import Categories.Category.Instance.Properties.Setoids.LCCC
+import Categories.Category.Instance.Rels
 import Categories.Category.Instance.Setoids
 import Categories.Category.Instance.Sets
 import Categories.Category.Instance.Simplex
@@ -204,6 +209,7 @@ import Categories.Diagram.Pushout
 import Categories.Diagram.Pushout.Properties
 import Categories.Diagram.SubobjectClassifier
 import Categories.Enriched.Category
+import Categories.Enriched.Category.Opposite
 import Categories.Enriched.Category.Underlying
 import Categories.Enriched.Functor
 import Categories.Enriched.NaturalTransformation
@@ -223,6 +229,8 @@ import Categories.Functor.Construction.FromDiscrete
 import Categories.Functor.Construction.LiftSetoids
 import Categories.Functor.Construction.Limit
 import Categories.Functor.Construction.ObjectRestriction
+import Categories.Functor.Construction.SubCategory
+import Categories.Functor.Construction.SubCategory.Properties
 import Categories.Functor.Construction.Zero
 import Categories.Functor.Core
 import Categories.Functor.Duality
@@ -242,6 +250,7 @@ import Categories.Functor.Instance.StrictCore
 import Categories.Functor.Limits
 import Categories.Functor.Monoidal
 import Categories.Functor.Monoidal.Properties
+import Categories.Functor.Monoidal.Symmetric
 import Categories.Functor.Power
 import Categories.Functor.Power.Functorial
 import Categories.Functor.Power.NaturalTransformation
@@ -281,9 +290,11 @@ import Categories.NaturalTransformation.Core
 import Categories.NaturalTransformation.Dinatural
 import Categories.NaturalTransformation.Equivalence
 import Categories.NaturalTransformation.Hom
+import Categories.NaturalTransformation.Monoidal
 import Categories.NaturalTransformation.NaturalIsomorphism
 import Categories.NaturalTransformation.NaturalIsomorphism.Equivalence
 import Categories.NaturalTransformation.NaturalIsomorphism.Functors
+import Categories.NaturalTransformation.NaturalIsomorphism.Monoidal
 import Categories.NaturalTransformation.NaturalIsomorphism.Properties
 import Categories.NaturalTransformation.Properties
 import Categories.Object.Coproduct
@@ -304,6 +315,9 @@ import Categories.Object.Terminal
 import Categories.Object.Terminal.Limit
 import Categories.Object.Zero
 import Categories.Pseudofunctor
+import Categories.Pseudofunctor.Composition
+import Categories.Pseudofunctor.Hom
+import Categories.Pseudofunctor.Identity
 import Categories.Pseudofunctor.Instance.EnrichedUnderlying
 import Categories.Theory.Lawvere
 import Categories.Utils.EqReasoning
