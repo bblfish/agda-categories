@@ -208,9 +208,9 @@ open import Data.Sum using (_⊎_ )
      open import Relation.Binary.PropositionalEquality.Core
 
      F1 : {F G : Category.Obj Quiv} → Quiv [ F , G ] → Triples [ F0 F , F0 G ]
-     η (F1 {F} {G} α) 0F (inj₁ x) = inj₁ (η α 0F x)   -- apply natural transformation for nodes in Quiv on left
-     η (F1 {F} {G} α) 0F (inj₂ y) = inj₂ (η α 1F y)   -- add natural transformation for arrows to the right
-     η (F1 {F} {G} α) 1F x = η α 1F x    -- arrows follow the same natural transformation as in Quiv
+     η (F1 {F} {G} α) 0F (inj₁ x) = inj₁ (η α 0F x) -- apply natural transformation for nodes in Quiv on left
+     η (F1 {F} {G} α) 0F (inj₂ y) = inj₂ (η α 1F y) -- add natural transformation for arrows to the right
+     η (F1 {F} {G} α) 1F x = η α 1F x  -- arrows follow the same natural transformation as in Quiv
      commute (F1 {F} {G} α) {0F} {0F} 0F {x} = refl
      commute (F1 {F} {G} α) {0F} {1F} () {x}
      commute (F1 {F} {G} α) {0F} {Fin.suc (Fin.suc ())} f {x}
@@ -221,12 +221,16 @@ open import Data.Sum using (_⊎_ )
     --   ((η (F1 α) 0F) ∘ ((Functor.F₁ (F0 F)) 2F)) x
     -- ≡⟨⟩
          ((η (F1 α) 0F) ∘ (λ z → inj₂ z)) x -- (Functor.₁ (F0 F) 2F)) x
-       ≡⟨⟩
-         ((λ z → inj₂ z) ∘ (η α 1F)) x    -- by definition of η (F1 α) 0F above
+       ≡⟨⟩ -- apply x to λ z → inj₂ z
+         (η (F1 α) 0F) (inj₂  x) 
+       ≡⟨⟩ -- apply second definition of η above
+         inj₂ (η α 1F x)
        ≡˘⟨ cong inj₂ (h {F} {G} {α} {x}) ⟩
+         inj₂ (η (F1 α) 1F x)
+       ≡⟨⟩ -- apply second definition of η above
          ((λ z → inj₂ z) ∘ (η (F1 α) 1F)) x  -- (Functor.F₁ (F0 G) 2F)
    -- ≡⟨⟩
-   --    ((Functor.F₁ (F0 G) 2F) ∘ (η (F1 α) 1F)) x  
+   --    ((Functor.F₁ (F0 G) 2F) ∘ (η (F1 α) 1F)) x
        ∎ 
        where
           open Relation.Binary.PropositionalEquality.Core.≡-Reasoning
