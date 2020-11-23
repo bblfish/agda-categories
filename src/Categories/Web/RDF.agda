@@ -227,7 +227,7 @@ open import Data.Sum using (_⊎_ )
          inj₂ (η α 1F x)
        ≡˘⟨ cong inj₂ (h {F} {G} {α} {x}) ⟩
          inj₂ (η (F1 α) 1F x)
-       ≡⟨⟩ -- apply second definition of η above
+       ≡⟨⟩ -- unwrap definition above
          ((λ z → inj₂ z) ∘ (η (F1 α) 1F)) x  -- (Functor.F₁ (F0 G) 2F)
    -- ≡⟨⟩
    --    ((Functor.F₁ (F0 G) 2F) ∘ (η (F1 α) 1F)) x
