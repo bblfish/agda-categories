@@ -42,7 +42,7 @@ HyperGraphShape n = shapeHelper record
         morph 0F 1F = n
         morph 1F 0F = 0
         morph 1F 1F = 1
-        
+
         id : Fin (morph a a)
         id {0F} = 0F -- 0F is the only inhabitant of Fin 1
         id {1F} = 0F 
@@ -52,7 +52,7 @@ HyperGraphShape n = shapeHelper record
         _∘_ {0F} {0F} {1F} g 1₀   = g
         _∘_ {1F} {1F} {1F} 1₁ 1₁' = 1₁
         _∘_ {0F} {1F} {1F} 1₁ f   = f
-   
+
         assoc : ∀ {f : Fin (morph a b)} {g : Fin (morph b c)} {h : Fin (morph c d)} →
                   ((h ∘ g) ∘ f) ≡ (h ∘ (g ∘ f))
         assoc {0F} {0F} {0F} {0F} {e} {f} {h} = refl
